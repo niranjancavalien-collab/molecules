@@ -1,4 +1,10 @@
 {
   "buildCommand": "npm run build",
-  "framework": "remix"
+  "outputDirectory": "build/client",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ]
 }
