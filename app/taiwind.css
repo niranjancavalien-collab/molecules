@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  html.dark {
+    color-scheme: dark;
+    background-color: #0b0f19;
+  }
+  html.light {
+    color-scheme: light;
+    background-color: #f8fafc;
+  }
+  body {
+    @apply font-sans antialiased text-slate-900 dark:text-slate-50;
+    background-color: transparent;
+  }
+  ::selection {
+    @apply bg-deep text-white dark:bg-glow;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-deep dark:ring-glow ring-offset-2 ring-offset-mist dark:ring-offset-ink;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-deep to-violetDeep dark:from-glow dark:to-violetGlow bg-clip-text text-transparent;
+  }
+  .surface-card {
+    @apply rounded-3xl border border-slate-200 bg-white/70 backdrop-blur-2xl shadow-xl dark:border-white/10 dark:bg-slate-900/60;
+  }
+  .surface-inset {
+    @apply rounded-2xl border border-slate-200 bg-slate-900/[0.03] dark:border-white/10 dark:bg-white/[0.04];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
