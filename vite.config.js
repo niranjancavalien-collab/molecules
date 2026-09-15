@@ -3,6 +3,9 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  build: {
+    chunkSizeWarningLimit: 1600,
+  },
   plugins: [
     remix({
       future: {
